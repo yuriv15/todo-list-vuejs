@@ -15,7 +15,7 @@ const ToDoList = {
               this.newToDo = {
                   done: false,
               };
-              localStorage.setItem("list", JSON.stringify(this.list));
+              this.updateLocalStorage();
           } else {
             alert("You need to write a new to-do in order to add");
           }
@@ -27,8 +27,11 @@ const ToDoList = {
         removeItem: function (index) {
             if (index > -1) {
                 this.list.splice(index, 1);
-                localStorage.setItem("list", JSON.stringify(this.list));
+                this.updateLocalStorage();
             }
+        },
+        updateLocalStorage: function () {
+            localStorage.setItem("list", JSON.stringify(this.list));
         }
     },
     created() {

@@ -26,7 +26,7 @@
                     <div class="single-todo">
                         <button class="remove" @click="removeItem(index)"></button>
                         <p
-                                @click="item.done = !item.done"
+                                @click="item.done = !item.done; updateLocalStorage()"
                                 :class="{ done : item.done }"
                         >
                             {{item.todo}}
